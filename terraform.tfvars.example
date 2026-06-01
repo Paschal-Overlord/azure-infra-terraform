@@ -1,0 +1,29 @@
+# Copy this file to terraform.tfvars and fill in your values.
+# Never commit terraform.tfvars — it is excluded by .gitignore.
+
+resource_group_name = "<your-resource-group>"       # Must already exist
+app_name            = "<your-app-name>"              # Short prefix, e.g. "myapp"
+environment         = "dev"
+
+# Networking (defaults are fine for most cases)
+# vnet_address_space  = ["10.0.0.0/16"]
+# vm_subnet_prefix    = "10.0.2.0/24"
+# mysql_subnet_prefix = "10.0.3.0/24"
+
+# Virtual Machine
+vm_admin_username = "<your-vm-admin-username>"
+vm_size           = "Standard_B1s"
+ssh_key_name      = "<name-of-your-azure-ssh-key-resource>"
+
+# Managed Identity resource ID
+# Find it: Azure Portal → Managed Identities → your identity → Properties → Resource ID
+managed_identity_id = "/subscriptions/<subscription-id>/resourceGroups/<rg>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<identity-name>"
+
+# Database
+mysql_admin_username = "dbadmin"
+
+# Key Vault (must be globally unique across all of Azure)
+key_vault_name = "<your-keyvault-name>"
+
+# Azure AD group that will get Key Vault Secrets User access
+devops_group_name = "<your-devops-ad-group-display-name>"
